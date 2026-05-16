@@ -426,11 +426,11 @@
         <span>//</span> sunny.singh
     </div>
     <ul class="nav-links" id="navLinks">
-        <li><a href="#skills">skills</a></li>
-        <li><a href="#packages">packages</a></li>
-        <li><a href="#projects">projects</a></li>
-        <li><a href="#experience">experience</a></li>
-        <li><a href="#contact">contact</a></li>
+        <li><a href="#skills">Skills</a></li>
+        <li><a href="#packages">Packages</a></li>
+        <li><a href="#projects">Projects</a></li>
+        <li><a href="#experience">Experience</a></li>
+        <li><a href="#contact">Contact</a></li>
     </ul>
     <div class="nav-toggle" id="navToggle" onclick="toggleNav()">
         <span></span><span></span><span></span>
@@ -562,112 +562,130 @@
     </div>
 </section>
 
+<!-- Project Modal -->
+<div id="projectModal" style="display:none;position:fixed;inset:0;z-index:2000;align-items:flex-end;justify-content:center;background:rgba(0,0,0,0.7);backdrop-filter:blur(6px)">
+    <div id="modalBox" style="background:var(--surface);border:1px solid var(--border2);border-radius:24px 24px 0 0;width:100%;max-width:680px;max-height:90vh;overflow-y:auto;padding:0;transform:translateY(100%);transition:transform 0.4s cubic-bezier(0.32,0.72,0,1)">
+        <!-- drag handle -->
+        <div style="text-align:center;padding:14px 0 4px;position:sticky;top:0;background:var(--surface);z-index:10;border-bottom:1px solid var(--border)">
+            <div style="width:40px;height:4px;border-radius:2px;background:var(--border2);margin:0 auto 12px"></div>
+            <button onclick="closeModal()" style="position:absolute;right:20px;top:12px;background:var(--surface2);border:1px solid var(--border);color:var(--text2);width:32px;height:32px;border-radius:50%;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center">✕</button>
+        </div>
+        <div style="padding:28px 32px 40px" id="modalContent"></div>
+    </div>
+</div>
+
 <!-- Projects -->
 <section id="projects">
     <div class="section-header fade-in">
         <div class="section-eyebrow">Featured Work</div>
         <h2 class="section-title">Projects Shipped</h2>
     </div>
+    <p style="color:var(--text3);font-size:0.85rem;font-family:'Space Mono',monospace;margin-bottom:28px;" class="fade-in">
+        <i class="fas fa-hand-pointer" style="color:var(--flutter-cyan)"></i> &nbsp;Click any card to view full details
+    </p>
     <div class="projects-grid">
 
-        <div class="project-card fade-in">
+        <div class="project-card fade-in" onclick="openModal('ev')" style="cursor:pointer">
             <div class="project-top">
                 <div class="project-icon2"><i class="fas fa-bolt"></i></div>
                 <div class="project-links2">
-                    <a href="https://play.google.com/store/search?q=Universal%20EV&c=apps&hl=en_IN" target="_blank" class="project-link2"><i class="fab fa-google-play"></i></a>
-                    <a href="https://apps.apple.com/in/app/universal-ev/id6479500968" target="_blank" class="project-link2"><i class="fab fa-apple"></i></a>
+                    <span class="project-link2" style="color:var(--flutter-cyan);border-color:var(--border2)"><i class="fas fa-arrow-up-right-from-square"></i></span>
                 </div>
             </div>
             <h3>Universal EV</h3>
-            <p>Electric vehicle marketplace with product catalog, cart management, Stripe payments, order tracking, and user reviews. Real-time inventory updates.</p>
+            <p>Electric vehicle marketplace with cart, Stripe payments, order tracking & real-time inventory.</p>
             <div class="project-stack">
-                <span class="stack-chip">Flutter</span><span class="stack-chip">Stripe</span><span class="stack-chip">Provider</span><span class="stack-chip">Firebase</span><span class="stack-chip">REST APIs</span>
+                <span class="stack-chip">Flutter</span><span class="stack-chip">Stripe</span><span class="stack-chip">Provider</span><span class="stack-chip">Firebase</span>
             </div>
-            <div class="store-links">
-                <a href="https://play.google.com/store/search?q=Universal%20EV&c=apps&hl=en_IN" target="_blank" class="store-btn"><i class="fab fa-google-play"></i> Play Store</a>
-                <a href="https://apps.apple.com/in/app/universal-ev/id6479500968" target="_blank" class="store-btn"><i class="fab fa-apple"></i> App Store</a>
+            <div style="margin-top:16px;display:flex;gap:8px">
+                <span class="store-btn"><i class="fab fa-google-play"></i> Play Store</span>
+                <span class="store-btn"><i class="fab fa-apple"></i> App Store</span>
             </div>
         </div>
 
-        <div class="project-card fade-in">
+        <div class="project-card fade-in" onclick="openModal('datenite')" style="cursor:pointer">
             <div class="project-top">
                 <div class="project-icon2"><i class="fas fa-heart"></i></div>
                 <div class="project-links2">
-                    <a href="https://play.google.com/store/apps/details?id=uk.co.datenite.app&hl=en_IN" target="_blank" class="project-link2"><i class="fab fa-google-play"></i></a>
-                    <a href="https://apps.apple.com/in/app/datenite-dating-matches/id1592597688" target="_blank" class="project-link2"><i class="fab fa-apple"></i></a>
+                    <span class="project-link2" style="color:var(--flutter-cyan);border-color:var(--border2)"><i class="fas fa-arrow-up-right-from-square"></i></span>
                 </div>
             </div>
             <h3>DateNite — Dating App</h3>
-            <p>Modern dating platform with user profiles, real-time chat, match suggestions, video calls via WebRTC, and secure authentication. Advanced matching algorithm.</p>
+            <p>Dating platform with real-time chat, video calls via WebRTC & advanced match algorithm.</p>
             <div class="project-stack">
-                <span class="stack-chip">Flutter</span><span class="stack-chip">GetX</span><span class="stack-chip">Firebase</span><span class="stack-chip">WebRTC</span><span class="stack-chip">Cloud Functions</span>
+                <span class="stack-chip">Flutter</span><span class="stack-chip">GetX</span><span class="stack-chip">Firebase</span><span class="stack-chip">WebRTC</span>
             </div>
-            <div class="store-links">
-                <a href="https://play.google.com/store/apps/details?id=uk.co.datenite.app&hl=en_IN" target="_blank" class="store-btn"><i class="fab fa-google-play"></i> Play Store</a>
-                <a href="https://apps.apple.com/in/app/datenite-dating-matches/id1592597688" target="_blank" class="store-btn"><i class="fab fa-apple"></i> App Store</a>
+            <div style="margin-top:16px;display:flex;gap:8px">
+                <span class="store-btn"><i class="fab fa-google-play"></i> Play Store</span>
+                <span class="store-btn"><i class="fab fa-apple"></i> App Store</span>
             </div>
         </div>
 
-        <div class="project-card fade-in">
+        <div class="project-card fade-in" onclick="openModal('conteudo')" style="cursor:pointer">
             <div class="project-top">
                 <div class="project-icon2"><i class="fas fa-briefcase"></i></div>
                 <div class="project-links2">
-                    <a href="https://apps.apple.com/in/app/conteudo/id6755385342" target="_blank" class="project-link2"><i class="fab fa-apple"></i></a>
+                    <span class="project-link2" style="color:var(--flutter-cyan);border-color:var(--border2)"><i class="fas fa-arrow-up-right-from-square"></i></span>
                 </div>
             </div>
             <h3>Conteudo — Job Portal</h3>
-            <p>AI-powered job matching with smart recommendations, video interviews via WebRTC, skill assessments, and career development resources.</p>
+            <p>AI-powered job matching with video interviews, skill assessments & career development.</p>
             <div class="project-stack">
                 <span class="stack-chip">Flutter</span><span class="stack-chip">Firebase ML</span><span class="stack-chip">GetX</span><span class="stack-chip">WebRTC</span>
             </div>
-            <div class="store-links">
-                <a href="https://apps.apple.com/in/app/conteudo/id6755385342" target="_blank" class="store-btn"><i class="fab fa-apple"></i> App Store</a>
+            <div style="margin-top:16px;display:flex;gap:8px">
+                <span class="store-btn"><i class="fab fa-apple"></i> App Store</span>
             </div>
         </div>
 
-        <div class="project-card fade-in">
+        <div class="project-card fade-in" onclick="openModal('finance')" style="cursor:pointer">
             <div class="project-top">
                 <div class="project-icon2"><i class="fas fa-chart-line"></i></div>
                 <div class="project-links2">
-                    <a href="https://apps.apple.com/in/app/finance-jobs-int/id6754635760" target="_blank" class="project-link2"><i class="fab fa-apple"></i></a>
+                    <span class="project-link2" style="color:var(--flutter-cyan);border-color:var(--border2)"><i class="fas fa-arrow-up-right-from-square"></i></span>
                 </div>
             </div>
             <h3>Finance Jobs Int</h3>
-            <p>Finance-sector job platform with company reviews, salary insights, career guidance, networking, and industry-specific listings with GraphQL backend.</p>
+            <p>Finance-sector job platform with salary insights, career guidance & GraphQL backend.</p>
             <div class="project-stack">
-                <span class="stack-chip">Flutter</span><span class="stack-chip">Node.js</span><span class="stack-chip">MongoDB</span><span class="stack-chip">Provider</span><span class="stack-chip">GraphQL</span>
+                <span class="stack-chip">Flutter</span><span class="stack-chip">Node.js</span><span class="stack-chip">MongoDB</span><span class="stack-chip">GraphQL</span>
             </div>
-            <div class="store-links">
-                <a href="https://apps.apple.com/in/app/finance-jobs-int/id6754635760" target="_blank" class="store-btn"><i class="fab fa-apple"></i> App Store</a>
+            <div style="margin-top:16px;display:flex;gap:8px">
+                <span class="store-btn"><i class="fab fa-apple"></i> App Store</span>
             </div>
         </div>
 
-        <div class="project-card fade-in">
+        <div class="project-card fade-in" onclick="openModal('enterprise')" style="cursor:pointer">
             <div class="project-top">
                 <div class="project-icon2"><i class="fas fa-building"></i></div>
-                <div class="project-links2"></div>
+                <div class="project-links2">
+                    <span class="project-link2" style="color:var(--flutter-cyan);border-color:var(--border2)"><i class="fas fa-arrow-up-right-from-square"></i></span>
+                </div>
             </div>
             <h3>Enterprise Business App</h3>
-            <p>Full-featured B2B app with role-based access control, real-time dashboards, analytics, and multi-user collaboration for complex business workflows.</p>
+            <p>B2B app with role-based access, real-time dashboards, analytics & multi-user collaboration.</p>
             <div class="project-stack">
-                <span class="stack-chip">Flutter</span><span class="stack-chip">Firebase</span><span class="stack-chip">GetX</span><span class="stack-chip">REST APIs</span><span class="stack-chip">SQLite</span>
+                <span class="stack-chip">Flutter</span><span class="stack-chip">Firebase</span><span class="stack-chip">GetX</span><span class="stack-chip">SQLite</span>
+            </div>
+            <div style="margin-top:16px">
+                <span class="store-btn"><i class="fas fa-lock"></i> Private / NDA</span>
             </div>
         </div>
 
-        <div class="project-card fade-in">
+        <div class="project-card fade-in" onclick="openModal('career')" style="cursor:pointer">
             <div class="project-top">
                 <div class="project-icon2"><i class="fas fa-search"></i></div>
                 <div class="project-links2">
-                    <a href="https://play.google.com/store/apps/details?id=com.careerconnect" target="_blank" class="project-link2"><i class="fab fa-google-play"></i></a>
+                    <span class="project-link2" style="color:var(--flutter-cyan);border-color:var(--border2)"><i class="fas fa-arrow-up-right-from-square"></i></span>
                 </div>
             </div>
             <h3>CareerConnect</h3>
-            <p>Professional job platform with resume builder, application tracking, job alerts, employer dashboard, and AI-powered smart job matching via ML Kit.</p>
+            <p>Job platform with resume builder, application tracking & AI-powered smart job matching.</p>
             <div class="project-stack">
-                <span class="stack-chip">Flutter</span><span class="stack-chip">Bloc</span><span class="stack-chip">Firebase</span><span class="stack-chip">Cloud Functions</span><span class="stack-chip">ML Kit</span>
+                <span class="stack-chip">Flutter</span><span class="stack-chip">Bloc</span><span class="stack-chip">Firebase</span><span class="stack-chip">ML Kit</span>
             </div>
-            <div class="store-links">
-                <a href="https://play.google.com/store/apps/details?id=com.careerconnect" target="_blank" class="store-btn"><i class="fab fa-google-play"></i> Play Store</a>
+            <div style="margin-top:16px;display:flex;gap:8px">
+                <span class="store-btn"><i class="fab fa-google-play"></i> Play Store</span>
             </div>
         </div>
 
@@ -770,7 +788,144 @@
 </footer>
 
 <script>
-    // Cursor
+    // ── Project Data ──────────────────────────────────────────────
+    const projects = {
+      ev: {
+        icon:'fas fa-bolt', color:'#027DFD',
+        title:'Universal EV',
+        subtitle:'Electric Vehicle Marketplace',
+        desc:'A complete electric vehicle marketplace app for both Android and iOS. Users can browse an extensive product catalog, manage their cart, make secure Stripe payments, track orders in real-time, and leave reviews. The app features real-time inventory updates via Firebase Firestore and a clean, intuitive UI built entirely in Flutter.',
+        features:['Product catalog with advanced filters','Cart & wishlist management','Stripe payment gateway integration','Real-time order tracking','User reviews & ratings system','Push notifications via FCM'],
+        stack:['Flutter','Dart','Provider','Firebase','Firestore','Stripe SDK','REST APIs','FCM'],
+        platform:'Android & iOS',
+        links:[
+          {label:'Google Play',icon:'fab fa-google-play',url:'https://play.google.com/store/search?q=Universal%20EV&c=apps&hl=en_IN'},
+          {label:'App Store',icon:'fab fa-apple',url:'https://apps.apple.com/in/app/universal-ev/id6479500968'}
+        ]
+      },
+      datenite: {
+        icon:'fas fa-heart', color:'#E05C8A',
+        title:'DateNite',
+        subtitle:'Modern Dating Platform',
+        desc:'DateNite is a feature-rich dating app available on both Play Store and App Store. It includes swipe-based matching, real-time messaging, WebRTC-powered video calls, and a sophisticated matching algorithm. Secure authentication with Firebase Auth and a performant GetX state management architecture ensure a smooth user experience.',
+        features:['Swipe-based profile matching','Real-time chat with read receipts','WebRTC 1-on-1 video calls','Advanced matching algorithm','Location-based discovery','In-app notifications & alerts'],
+        stack:['Flutter','GetX','Firebase','WebRTC','Cloud Functions','Firestore','Firebase Auth'],
+        platform:'Android & iOS',
+        links:[
+          {label:'Google Play',icon:'fab fa-google-play',url:'https://play.google.com/store/apps/details?id=uk.co.datenite.app&hl=en_IN'},
+          {label:'App Store',icon:'fab fa-apple',url:'https://apps.apple.com/in/app/datenite-dating-matches/id1592597688'}
+        ]
+      },
+      conteudo: {
+        icon:'fas fa-briefcase', color:'#00B4AB',
+        title:'Conteudo',
+        subtitle:'AI-Powered Job Portal',
+        desc:'Conteudo is an intelligent job-matching platform that uses Firebase ML to recommend the most relevant jobs to candidates. It supports in-app video interviews powered by WebRTC, skill assessment quizzes, and a comprehensive career development section. Available on the App Store with a polished, modern UI.',
+        features:['AI-powered smart job matching','WebRTC video interviews','Skill assessment & tests','Career development resources','Employer dashboard & analytics','Resume parsing & builder'],
+        stack:['Flutter','GetX','Firebase ML','WebRTC','Cloud Functions','Firestore'],
+        platform:'iOS',
+        links:[
+          {label:'App Store',icon:'fab fa-apple',url:'https://apps.apple.com/in/app/conteudo/id6755385342'}
+        ]
+      },
+      finance: {
+        icon:'fas fa-chart-line', color:'#54C5F8',
+        title:'Finance Jobs Int',
+        subtitle:'Finance Sector Job Platform',
+        desc:'A specialized job platform targeting the finance industry. Built with a GraphQL + Node.js + MongoDB backend, the app offers company salary insights, detailed reviews, career roadmaps, and professional networking. Industry-specific job listings help candidates find the right finance-sector roles faster.',
+        features:['Finance-specific job listings','Salary insights & benchmarks','Company reviews & culture scores','Professional networking feed','Career roadmaps & guidance','GraphQL-powered fast queries'],
+        stack:['Flutter','Provider','GraphQL','Node.js','MongoDB','REST APIs'],
+        platform:'iOS',
+        links:[
+          {label:'App Store',icon:'fab fa-apple',url:'https://apps.apple.com/in/app/finance-jobs-int/id6754635760'}
+        ]
+      },
+      enterprise: {
+        icon:'fas fa-building', color:'#8B7CF8',
+        title:'Enterprise Business App',
+        subtitle:'B2B Workflow Management',
+        desc:'A full-scale enterprise application for managing complex business workflows. Features include role-based access control (RBAC) with multiple permission levels, real-time analytics dashboards, multi-user collaboration tools, and offline-capable SQLite data sync. Built for 50K+ active users with 99.9% uptime.',
+        features:['Role-based access control (RBAC)','Real-time analytics & dashboards','Multi-user collaboration','Offline-first with SQLite sync','Automated reporting system','Push notifications & alerts'],
+        stack:['Flutter','GetX','Firebase','Firestore','REST APIs','SQLite','FCM'],
+        platform:'Android & iOS',
+        links:[
+          {label:'Private / NDA Project',icon:'fas fa-lock',url:null}
+        ]
+      },
+      career: {
+        icon:'fas fa-search', color:'#F59E0B',
+        title:'CareerConnect',
+        subtitle:'AI-Powered Job Search Platform',
+        desc:'CareerConnect is a professional job search platform enhanced with ML Kit for AI-powered job recommendations. The Bloc architecture ensures predictable state management across complex flows including resume building, application tracking, job alerts, and an employer dashboard for posting and managing listings.',
+        features:['AI job recommendations via ML Kit','Resume builder with templates','Application status tracking','Smart job alerts & filters','Employer dashboard','Interview scheduling system'],
+        stack:['Flutter','Bloc','Firebase','Cloud Functions','ML Kit','Firestore'],
+        platform:'Android',
+        links:[
+          {label:'Google Play',icon:'fab fa-google-play',url:'https://play.google.com/store/apps/details?id=com.careerconnect'}
+        ]
+      }
+    };
+
+    // ── Modal ─────────────────────────────────────────────────────
+    function openModal(id) {
+      const p = projects[id];
+      if (!p) return;
+      const modal = document.getElementById('projectModal');
+      const box = document.getElementById('modalBox');
+
+      const linksHtml = p.links.map(l =>
+        l.url
+          ? `<a href="${l.url}" target="_blank" class="btn-primary" style="font-size:0.85rem;padding:11px 20px;text-decoration:none"><i class="${l.icon}"></i> ${l.label}</a>`
+          : `<span class="btn-secondary" style="font-size:0.85rem;padding:11px 20px;opacity:0.6;cursor:default"><i class="${l.icon}"></i> ${l.label}</span>`
+      ).join('');
+
+      const stackHtml = p.stack.map(s=>`<span class="tech-tag">${s}</span>`).join('');
+      const featHtml = p.features.map(f=>`<li style="padding:8px 0;border-bottom:1px solid var(--border);font-size:0.9rem;color:var(--text2);display:flex;align-items:center;gap:10px"><i class="fas fa-check-circle" style="color:var(--flutter-cyan);font-size:0.8rem;flex-shrink:0"></i>${f}</li>`).join('');
+
+      document.getElementById('modalContent').innerHTML = `
+        <div style="display:flex;align-items:center;gap:16px;margin-bottom:24px">
+          <div style="width:60px;height:60px;border-radius:14px;background:${p.color}22;border:1px solid ${p.color}44;display:flex;align-items:center;justify-content:center;font-size:1.6rem;color:${p.color};flex-shrink:0">
+            <i class="${p.icon}"></i>
+          </div>
+          <div>
+            <h2 style="font-family:'Syne',sans-serif;font-size:1.5rem;font-weight:800;color:var(--text);margin-bottom:4px">${p.title}</h2>
+            <span style="font-family:'Space Mono',monospace;font-size:0.72rem;color:var(--text3)">${p.subtitle} &nbsp;·&nbsp; ${p.platform}</span>
+          </div>
+        </div>
+
+        <p style="font-size:0.93rem;line-height:1.85;color:var(--text2);margin-bottom:28px">${p.desc}</p>
+
+        <div style="margin-bottom:24px">
+          <p style="font-family:'Space Mono',monospace;font-size:0.7rem;color:var(--flutter-cyan);letter-spacing:0.12em;margin-bottom:14px">KEY FEATURES</p>
+          <ul style="list-style:none;margin:0;padding:0">${featHtml}</ul>
+        </div>
+
+        <div style="margin-bottom:28px">
+          <p style="font-family:'Space Mono',monospace;font-size:0.7rem;color:var(--flutter-cyan);letter-spacing:0.12em;margin-bottom:12px">TECH STACK</p>
+          <div>${stackHtml}</div>
+        </div>
+
+        <div style="display:flex;gap:10px;flex-wrap:wrap">${linksHtml}</div>
+      `;
+
+      modal.style.display = 'flex';
+      document.body.style.overflow = 'hidden';
+      requestAnimationFrame(()=>{ requestAnimationFrame(()=>{ box.style.transform='translateY(0)'; }); });
+    }
+
+    function closeModal() {
+      const modal = document.getElementById('projectModal');
+      const box = document.getElementById('modalBox');
+      box.style.transform = 'translateY(100%)';
+      setTimeout(()=>{ modal.style.display='none'; document.body.style.overflow=''; }, 400);
+    }
+
+    document.getElementById('projectModal').addEventListener('click', function(e) {
+      if (e.target === this) closeModal();
+    });
+    document.addEventListener('keydown', e => { if(e.key==='Escape') closeModal(); });
+
+    // ── Cursor ────────────────────────────────────────────────────
     const cursor=document.getElementById('cursor');
     const ring=document.getElementById('cursorRing');
     document.addEventListener('mousemove',e=>{
@@ -779,24 +934,24 @@
       ring.style.left=e.clientX+'px';
       ring.style.top=e.clientY+'px';
     });
-    document.querySelectorAll('a,button').forEach(el=>{
+    document.querySelectorAll('a,button,.project-card').forEach(el=>{
       el.addEventListener('mouseenter',()=>{ring.style.transform='translate(-50%,-50%) scale(1.8)';cursor.style.transform='scale(0.5)'});
       el.addEventListener('mouseleave',()=>{ring.style.transform='translate(-50%,-50%) scale(1)';cursor.style.transform='scale(1)'});
     });
 
-    // Nav toggle
+    // ── Nav ───────────────────────────────────────────────────────
     function toggleNav(){
       document.getElementById('navLinks').classList.toggle('open');
     }
     document.querySelectorAll('#navLinks a').forEach(a=>a.addEventListener('click',()=>document.getElementById('navLinks').classList.remove('open')));
 
-    // Scroll fade-in
+    // ── Scroll fade-in ────────────────────────────────────────────
     const observer=new IntersectionObserver(entries=>{
       entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible')}});
     },{threshold:0.1,rootMargin:'0px 0px -60px 0px'});
     document.querySelectorAll('.fade-in').forEach(el=>observer.observe(el));
 
-    // Skill bars animate on view
+    // ── Skill bars ────────────────────────────────────────────────
     const barObserver=new IntersectionObserver(entries=>{
       entries.forEach(e=>{
         if(e.isIntersecting){
@@ -809,7 +964,7 @@
     },{threshold:0.3});
     document.querySelectorAll('.skills-grid').forEach(el=>barObserver.observe(el));
 
-    // Smooth scroll
+    // ── Smooth scroll ─────────────────────────────────────────────
     document.querySelectorAll('a[href^="#"]').forEach(a=>{
       a.addEventListener('click',e=>{
         e.preventDefault();
